@@ -1,0 +1,28 @@
+ /******************************************************************************
+ *
+ * Module: DC Motor
+ *
+ * File Name: DC_Motor.c
+ *
+ * Description: source file for the DC Motor (Fan)
+ *
+ * Author: Ahmed Reda
+ *
+ *******************************************************************************/
+
+#include "DC_Motor.h"
+#include "gpio.h"
+
+
+
+void DcMotor_Init(void)
+{
+	GPIO_setupPinDirection(PORTB_ID,PIN0_ID,PIN_OUTPUT);
+	GPIO_setupPinDirection(PORTB_ID,PIN1_ID,PIN_OUTPUT);
+
+
+
+
+
+}
+

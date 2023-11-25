@@ -1,0 +1,22 @@
+ /******************************************************************************
+ *
+ * Module: DC Motor
+ *
+ * File Name: DC_Motor.c
+ *
+ * Description: source file for the DC Motor (Fan)
+ *
+ * Author: Ahmed Reda
+ *
+ *******************************************************************************/
+void DcMotor_Init(void)
+{
+
+
+
+
+
+
+
+}
+

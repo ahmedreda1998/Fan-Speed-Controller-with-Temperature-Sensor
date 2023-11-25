@@ -1,0 +1,26 @@
+ /******************************************************************************
+ *
+ * Module: PWM
+ *
+ * File Name: PWM.c
+ *
+ * Description: source file for the PWM
+ *
+ * Author: Ahmed Reda
+ *
+ *******************************************************************************/
+
+#include "gpio.h"
+#include "PWM.h"
+
+void PWM_Timer0_Start(uint8 duty_cycle)
+{
+
+
+
+
+
+
+
+
+}

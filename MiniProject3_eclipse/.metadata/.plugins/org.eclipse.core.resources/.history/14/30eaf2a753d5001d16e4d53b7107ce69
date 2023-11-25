@@ -1,0 +1,82 @@
+/******************************************************************************
+ *
+ * Module: main application
+ *
+ * File Name: main.c
+ *
+ * Description: source file for the main application
+ *
+ * Author: Ahmed Reda
+ *
+ *******************************************************************************/
+#include "lcd.h"
+#include "adc.h"
+#include "DC_Motor.h"
+#include "lm35_sensor.h"
+#include "PWM.h"
+
+int main (void)
+{	LCD_init();
+	DcMotor_Init();
+    ADC_init();
+    uint8 temp;
+while (1)
+{
+	temp= LM35_getTemperature();
+	if (temp < 30)
+	{
+		LCD_displayStringRowColumn(0,5,"FAN is OFF");
+		LCD_displayStringRowColumn(1,5,"Temp =    C");
+		LCD_moveCursor(1,11);
+		if ((temp < 30) && (temp >10))
+		{
+		LCD_intgerToString(temp);
+		}
+		else
+		{
+			LCD_intgerToString(temp);
+			LCD_displayCharacter(' ');
+		}
+	}
+	if ((temp >= 30) && (temp<60) )
+		{
+			LCD_displayStringRowColumn(0,5,"FAN is ON");
+			LCD_displayStringRowColumn(1,5,"Temp =    C");
+			LCD_moveCursor(1,11);
+			LCD_intgerToString(temp);
+			DcMotor_Rotate(CW,25);
+		}
+	if ((temp >= 60) && (temp< 90) )
+			{
+				LCD_displayStringRowColumn(0,5,"FAN is ON");
+				LCD_displayStringRowColumn(1,5,"Temp =    C");
+				LCD_moveCursor(1,11);
+				LCD_intgerToString(temp);
+				DcMotor_Rotate(CW,50);
+			}
+	if ((temp >=90) && (temp < 120))
+	{
+		LCD_displayStringRowColumn(0,5,"FAN is ON");
+		LCD_displayStringRowColumn(1,5,"Temp =    C");
+		LCD_moveCursor(1,11);
+		LCD_intgerToString(temp);
+		DcMotor_Rotate(CW,75);
+	}
+	if ((temp >=120))
+	{
+		LCD_displayStringRowColumn(0,5,"FAN is ON");
+		LCD_displayStringRowColumn(1,5,"Temp =    C");
+		LCD_moveCursor(1,11);
+		LCD_intgerToString(temp);
+		DcMotor_Rotate(CW,100);
+	}
+
+
+
+}
+
+
+
+
+return 0;
+}
